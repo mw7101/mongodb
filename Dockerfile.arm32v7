@@ -68,6 +68,7 @@ RUN mkdir /docker-entrypoint-initdb.d
 
 #ENV GPG_KEYS E162F504A20CDF15827F718D4B7C549A058F8B6B
 ENV GPG_KEYS 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+RUN mkdir ~/.gnupg && echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
 RUN set -ex; \
     export GNUPGHOME="$(mktemp -d)"; \
     for key in $GPG_KEYS; do \
